@@ -1,0 +1,1002 @@
+[
+ {
+  "iata": "DEL",
+  "city": "Delhi",
+  "country": "India",
+  "lat": 28.5562,
+  "lon": 77.1,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "BOM",
+  "city": "Mumbai",
+  "country": "India",
+  "lat": 19.0896,
+  "lon": 72.8656,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "BLR",
+  "city": "Bengaluru",
+  "country": "India",
+  "lat": 13.1986,
+  "lon": 77.7066,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "MAA",
+  "city": "Chennai",
+  "country": "India",
+  "lat": 12.9941,
+  "lon": 80.1709,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "HYD",
+  "city": "Hyderabad",
+  "country": "India",
+  "lat": 17.2403,
+  "lon": 78.4294,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "CCU",
+  "city": "Kolkata",
+  "country": "India",
+  "lat": 22.6547,
+  "lon": 88.4467,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "AMD",
+  "city": "Ahmedabad",
+  "country": "India",
+  "lat": 23.0772,
+  "lon": 72.6347,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "PNQ",
+  "city": "Pune",
+  "country": "India",
+  "lat": 18.5822,
+  "lon": 73.9197,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "GOI",
+  "city": "Goa",
+  "country": "India",
+  "lat": 15.3808,
+  "lon": 73.8314,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "JAI",
+  "city": "Jaipur",
+  "country": "India",
+  "lat": 26.8242,
+  "lon": 75.8122,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "COK",
+  "city": "Kochi",
+  "country": "India",
+  "lat": 10.152,
+  "lon": 76.4019,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "TRV",
+  "city": "Thiruvananthapuram",
+  "country": "India",
+  "lat": 8.4821,
+  "lon": 76.9201,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "LKO",
+  "city": "Lucknow",
+  "country": "India",
+  "lat": 26.7606,
+  "lon": 80.8893,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "ATQ",
+  "city": "Amritsar",
+  "country": "India",
+  "lat": 31.7096,
+  "lon": 74.7973,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "IXC",
+  "city": "Chandigarh",
+  "country": "India",
+  "lat": 30.6735,
+  "lon": 76.7885,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "GAU",
+  "city": "Guwahati",
+  "country": "India",
+  "lat": 26.1061,
+  "lon": 91.5859,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "VNS",
+  "city": "Varanasi",
+  "country": "India",
+  "lat": 25.4524,
+  "lon": 82.8593,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "SXR",
+  "city": "Srinagar",
+  "country": "India",
+  "lat": 33.9871,
+  "lon": 74.7742,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "IDR",
+  "city": "Indore",
+  "country": "India",
+  "lat": 22.7218,
+  "lon": 75.8011,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "NAG",
+  "city": "Nagpur",
+  "country": "India",
+  "lat": 21.0922,
+  "lon": 79.0472,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "PAT",
+  "city": "Patna",
+  "country": "India",
+  "lat": 25.5913,
+  "lon": 85.088,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "BBI",
+  "city": "Bhubaneswar",
+  "country": "India",
+  "lat": 20.2444,
+  "lon": 85.8178,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "CJB",
+  "city": "Coimbatore",
+  "country": "India",
+  "lat": 11.03,
+  "lon": 77.0434,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "IXE",
+  "city": "Mangaluru",
+  "country": "India",
+  "lat": 12.9613,
+  "lon": 74.8901,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "VTZ",
+  "city": "Visakhapatnam",
+  "country": "India",
+  "lat": 17.7212,
+  "lon": 83.2245,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "UDR",
+  "city": "Udaipur",
+  "country": "India",
+  "lat": 24.6177,
+  "lon": 73.8961,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "CMB",
+  "city": "Colombo",
+  "country": "Sri Lanka",
+  "lat": 7.1808,
+  "lon": 79.8841,
+  "utc_offset": 5.5
+ },
+ {
+  "iata": "DAC",
+  "city": "Dhaka",
+  "country": "Bangladesh",
+  "lat": 23.8433,
+  "lon": 90.3978,
+  "utc_offset": 6
+ },
+ {
+  "iata": "KTM",
+  "city": "Kathmandu",
+  "country": "Nepal",
+  "lat": 27.6966,
+  "lon": 85.3591,
+  "utc_offset": 5.75
+ },
+ {
+  "iata": "KHI",
+  "city": "Karachi",
+  "country": "Pakistan",
+  "lat": 24.9065,
+  "lon": 67.1608,
+  "utc_offset": 5
+ },
+ {
+  "iata": "LHE",
+  "city": "Lahore",
+  "country": "Pakistan",
+  "lat": 31.5216,
+  "lon": 74.4036,
+  "utc_offset": 5
+ },
+ {
+  "iata": "ISB",
+  "city": "Islamabad",
+  "country": "Pakistan",
+  "lat": 33.549,
+  "lon": 72.8258,
+  "utc_offset": 5
+ },
+ {
+  "iata": "MLE",
+  "city": "Male",
+  "country": "Maldives",
+  "lat": 4.1918,
+  "lon": 73.529,
+  "utc_offset": 5
+ },
+ {
+  "iata": "DXB",
+  "city": "Dubai",
+  "country": "UAE",
+  "lat": 25.2532,
+  "lon": 55.3657,
+  "utc_offset": 4
+ },
+ {
+  "iata": "AUH",
+  "city": "Abu Dhabi",
+  "country": "UAE",
+  "lat": 24.433,
+  "lon": 54.6511,
+  "utc_offset": 4
+ },
+ {
+  "iata": "DOH",
+  "city": "Doha",
+  "country": "Qatar",
+  "lat": 25.2731,
+  "lon": 51.6081,
+  "utc_offset": 3
+ },
+ {
+  "iata": "RUH",
+  "city": "Riyadh",
+  "country": "Saudi Arabia",
+  "lat": 24.9576,
+  "lon": 46.6988,
+  "utc_offset": 3
+ },
+ {
+  "iata": "JED",
+  "city": "Jeddah",
+  "country": "Saudi Arabia",
+  "lat": 21.6796,
+  "lon": 39.1565,
+  "utc_offset": 3
+ },
+ {
+  "iata": "MCT",
+  "city": "Muscat",
+  "country": "Oman",
+  "lat": 23.5933,
+  "lon": 58.2844,
+  "utc_offset": 4
+ },
+ {
+  "iata": "KWI",
+  "city": "Kuwait City",
+  "country": "Kuwait",
+  "lat": 29.2266,
+  "lon": 47.9689,
+  "utc_offset": 3
+ },
+ {
+  "iata": "BAH",
+  "city": "Manama",
+  "country": "Bahrain",
+  "lat": 26.2708,
+  "lon": 50.6336,
+  "utc_offset": 3
+ },
+ {
+  "iata": "TLV",
+  "city": "Tel Aviv",
+  "country": "Israel",
+  "lat": 32.0114,
+  "lon": 34.8867,
+  "utc_offset": 2
+ },
+ {
+  "iata": "AMM",
+  "city": "Amman",
+  "country": "Jordan",
+  "lat": 31.7226,
+  "lon": 35.9932,
+  "utc_offset": 3
+ },
+ {
+  "iata": "IST",
+  "city": "Istanbul",
+  "country": "Turkey",
+  "lat": 41.2753,
+  "lon": 28.7519,
+  "utc_offset": 3
+ },
+ {
+  "iata": "LHR",
+  "city": "London",
+  "country": "United Kingdom",
+  "lat": 51.47,
+  "lon": -0.4543,
+  "utc_offset": 0
+ },
+ {
+  "iata": "MAN",
+  "city": "Manchester",
+  "country": "United Kingdom",
+  "lat": 53.3537,
+  "lon": -2.275,
+  "utc_offset": 0
+ },
+ {
+  "iata": "EDI",
+  "city": "Edinburgh",
+  "country": "United Kingdom",
+  "lat": 55.95,
+  "lon": -3.3725,
+  "utc_offset": 0
+ },
+ {
+  "iata": "DUB",
+  "city": "Dublin",
+  "country": "Ireland",
+  "lat": 53.4213,
+  "lon": -6.2701,
+  "utc_offset": 0
+ },
+ {
+  "iata": "CDG",
+  "city": "Paris",
+  "country": "France",
+  "lat": 49.0097,
+  "lon": 2.5479,
+  "utc_offset": 1
+ },
+ {
+  "iata": "AMS",
+  "city": "Amsterdam",
+  "country": "Netherlands",
+  "lat": 52.3105,
+  "lon": 4.7683,
+  "utc_offset": 1
+ },
+ {
+  "iata": "FRA",
+  "city": "Frankfurt",
+  "country": "Germany",
+  "lat": 50.0379,
+  "lon": 8.5622,
+  "utc_offset": 1
+ },
+ {
+  "iata": "MUC",
+  "city": "Munich",
+  "country": "Germany",
+  "lat": 48.3538,
+  "lon": 11.7861,
+  "utc_offset": 1
+ },
+ {
+  "iata": "BER",
+  "city": "Berlin",
+  "country": "Germany",
+  "lat": 52.3667,
+  "lon": 13.5033,
+  "utc_offset": 1
+ },
+ {
+  "iata": "ZRH",
+  "city": "Zurich",
+  "country": "Switzerland",
+  "lat": 47.4647,
+  "lon": 8.5492,
+  "utc_offset": 1
+ },
+ {
+  "iata": "GVA",
+  "city": "Geneva",
+  "country": "Switzerland",
+  "lat": 46.2381,
+  "lon": 6.109,
+  "utc_offset": 1
+ },
+ {
+  "iata": "VIE",
+  "city": "Vienna",
+  "country": "Austria",
+  "lat": 48.1103,
+  "lon": 16.5697,
+  "utc_offset": 1
+ },
+ {
+  "iata": "PRG",
+  "city": "Prague",
+  "country": "Czechia",
+  "lat": 50.1008,
+  "lon": 14.26,
+  "utc_offset": 1
+ },
+ {
+  "iata": "BUD",
+  "city": "Budapest",
+  "country": "Hungary",
+  "lat": 47.4298,
+  "lon": 19.2611,
+  "utc_offset": 1
+ },
+ {
+  "iata": "WAW",
+  "city": "Warsaw",
+  "country": "Poland",
+  "lat": 52.1657,
+  "lon": 20.9671,
+  "utc_offset": 1
+ },
+ {
+  "iata": "CPH",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "lat": 55.618,
+  "lon": 12.6508,
+  "utc_offset": 1
+ },
+ {
+  "iata": "ARN",
+  "city": "Stockholm",
+  "country": "Sweden",
+  "lat": 59.6519,
+  "lon": 17.9186,
+  "utc_offset": 1
+ },
+ {
+  "iata": "OSL",
+  "city": "Oslo",
+  "country": "Norway",
+  "lat": 60.1939,
+  "lon": 11.1004,
+  "utc_offset": 1
+ },
+ {
+  "iata": "HEL",
+  "city": "Helsinki",
+  "country": "Finland",
+  "lat": 60.3172,
+  "lon": 24.9633,
+  "utc_offset": 2
+ },
+ {
+  "iata": "BRU",
+  "city": "Brussels",
+  "country": "Belgium",
+  "lat": 50.9014,
+  "lon": 4.4844,
+  "utc_offset": 1
+ },
+ {
+  "iata": "MAD",
+  "city": "Madrid",
+  "country": "Spain",
+  "lat": 40.4983,
+  "lon": -3.5676,
+  "utc_offset": 1
+ },
+ {
+  "iata": "BCN",
+  "city": "Barcelona",
+  "country": "Spain",
+  "lat": 41.2974,
+  "lon": 2.0833,
+  "utc_offset": 1
+ },
+ {
+  "iata": "LIS",
+  "city": "Lisbon",
+  "country": "Portugal",
+  "lat": 38.7742,
+  "lon": -9.1342,
+  "utc_offset": 0
+ },
+ {
+  "iata": "OPO",
+  "city": "Porto",
+  "country": "Portugal",
+  "lat": 41.2481,
+  "lon": -8.6814,
+  "utc_offset": 0
+ },
+ {
+  "iata": "FCO",
+  "city": "Rome",
+  "country": "Italy",
+  "lat": 41.8003,
+  "lon": 12.2389,
+  "utc_offset": 1
+ },
+ {
+  "iata": "MXP",
+  "city": "Milan",
+  "country": "Italy",
+  "lat": 45.6306,
+  "lon": 8.7281,
+  "utc_offset": 1
+ },
+ {
+  "iata": "VCE",
+  "city": "Venice",
+  "country": "Italy",
+  "lat": 45.5053,
+  "lon": 12.3519,
+  "utc_offset": 1
+ },
+ {
+  "iata": "ATH",
+  "city": "Athens",
+  "country": "Greece",
+  "lat": 37.9364,
+  "lon": 23.9445,
+  "utc_offset": 2
+ },
+ {
+  "iata": "SVO",
+  "city": "Moscow",
+  "country": "Russia",
+  "lat": 55.9726,
+  "lon": 37.4146,
+  "utc_offset": 3
+ },
+ {
+  "iata": "CAI",
+  "city": "Cairo",
+  "country": "Egypt",
+  "lat": 30.1219,
+  "lon": 31.4056,
+  "utc_offset": 2
+ },
+ {
+  "iata": "JNB",
+  "city": "Johannesburg",
+  "country": "South Africa",
+  "lat": -26.1392,
+  "lon": 28.246,
+  "utc_offset": 2
+ },
+ {
+  "iata": "CPT",
+  "city": "Cape Town",
+  "country": "South Africa",
+  "lat": -33.9715,
+  "lon": 18.6021,
+  "utc_offset": 2
+ },
+ {
+  "iata": "NBO",
+  "city": "Nairobi",
+  "country": "Kenya",
+  "lat": -1.3192,
+  "lon": 36.9278,
+  "utc_offset": 3
+ },
+ {
+  "iata": "ADD",
+  "city": "Addis Ababa",
+  "country": "Ethiopia",
+  "lat": 8.9779,
+  "lon": 38.7993,
+  "utc_offset": 3
+ },
+ {
+  "iata": "LOS",
+  "city": "Lagos",
+  "country": "Nigeria",
+  "lat": 6.5774,
+  "lon": 3.3212,
+  "utc_offset": 1
+ },
+ {
+  "iata": "CMN",
+  "city": "Casablanca",
+  "country": "Morocco",
+  "lat": 33.3675,
+  "lon": -7.5898,
+  "utc_offset": 1
+ },
+ {
+  "iata": "MRU",
+  "city": "Mauritius",
+  "country": "Mauritius",
+  "lat": -20.4302,
+  "lon": 57.6836,
+  "utc_offset": 4
+ },
+ {
+  "iata": "SIN",
+  "city": "Singapore",
+  "country": "Singapore",
+  "lat": 1.3644,
+  "lon": 103.9915,
+  "utc_offset": 8
+ },
+ {
+  "iata": "KUL",
+  "city": "Kuala Lumpur",
+  "country": "Malaysia",
+  "lat": 2.7456,
+  "lon": 101.7099,
+  "utc_offset": 8
+ },
+ {
+  "iata": "BKK",
+  "city": "Bangkok",
+  "country": "Thailand",
+  "lat": 13.69,
+  "lon": 100.7501,
+  "utc_offset": 7
+ },
+ {
+  "iata": "HKT",
+  "city": "Phuket",
+  "country": "Thailand",
+  "lat": 8.1132,
+  "lon": 98.3169,
+  "utc_offset": 7
+ },
+ {
+  "iata": "CGK",
+  "city": "Jakarta",
+  "country": "Indonesia",
+  "lat": -6.1256,
+  "lon": 106.6559,
+  "utc_offset": 7
+ },
+ {
+  "iata": "DPS",
+  "city": "Bali",
+  "country": "Indonesia",
+  "lat": -8.7482,
+  "lon": 115.1672,
+  "utc_offset": 8
+ },
+ {
+  "iata": "MNL",
+  "city": "Manila",
+  "country": "Philippines",
+  "lat": 14.5086,
+  "lon": 121.0194,
+  "utc_offset": 8
+ },
+ {
+  "iata": "SGN",
+  "city": "Ho Chi Minh City",
+  "country": "Vietnam",
+  "lat": 10.8188,
+  "lon": 106.652,
+  "utc_offset": 7
+ },
+ {
+  "iata": "HAN",
+  "city": "Hanoi",
+  "country": "Vietnam",
+  "lat": 21.2212,
+  "lon": 105.8072,
+  "utc_offset": 7
+ },
+ {
+  "iata": "HKG",
+  "city": "Hong Kong",
+  "country": "Hong Kong",
+  "lat": 22.308,
+  "lon": 113.9185,
+  "utc_offset": 8
+ },
+ {
+  "iata": "PVG",
+  "city": "Shanghai",
+  "country": "China",
+  "lat": 31.1443,
+  "lon": 121.8083,
+  "utc_offset": 8
+ },
+ {
+  "iata": "PEK",
+  "city": "Beijing",
+  "country": "China",
+  "lat": 40.0799,
+  "lon": 116.6031,
+  "utc_offset": 8
+ },
+ {
+  "iata": "CAN",
+  "city": "Guangzhou",
+  "country": "China",
+  "lat": 23.3924,
+  "lon": 113.2988,
+  "utc_offset": 8
+ },
+ {
+  "iata": "TPE",
+  "city": "Taipei",
+  "country": "Taiwan",
+  "lat": 25.0797,
+  "lon": 121.2342,
+  "utc_offset": 8
+ },
+ {
+  "iata": "ICN",
+  "city": "Seoul",
+  "country": "South Korea",
+  "lat": 37.4602,
+  "lon": 126.4407,
+  "utc_offset": 9
+ },
+ {
+  "iata": "NRT",
+  "city": "Tokyo",
+  "country": "Japan",
+  "lat": 35.772,
+  "lon": 140.3929,
+  "utc_offset": 9
+ },
+ {
+  "iata": "KIX",
+  "city": "Osaka",
+  "country": "Japan",
+  "lat": 34.432,
+  "lon": 135.2304,
+  "utc_offset": 9
+ },
+ {
+  "iata": "SYD",
+  "city": "Sydney",
+  "country": "Australia",
+  "lat": -33.9399,
+  "lon": 151.1753,
+  "utc_offset": 10
+ },
+ {
+  "iata": "MEL",
+  "city": "Melbourne",
+  "country": "Australia",
+  "lat": -37.669,
+  "lon": 144.841,
+  "utc_offset": 10
+ },
+ {
+  "iata": "BNE",
+  "city": "Brisbane",
+  "country": "Australia",
+  "lat": -27.3842,
+  "lon": 153.1175,
+  "utc_offset": 10
+ },
+ {
+  "iata": "PER",
+  "city": "Perth",
+  "country": "Australia",
+  "lat": -31.9385,
+  "lon": 115.9672,
+  "utc_offset": 8
+ },
+ {
+  "iata": "AKL",
+  "city": "Auckland",
+  "country": "New Zealand",
+  "lat": -37.0082,
+  "lon": 174.785,
+  "utc_offset": 12
+ },
+ {
+  "iata": "JFK",
+  "city": "New York",
+  "country": "United States",
+  "lat": 40.6413,
+  "lon": -73.7781,
+  "utc_offset": -5
+ },
+ {
+  "iata": "BOS",
+  "city": "Boston",
+  "country": "United States",
+  "lat": 42.3656,
+  "lon": -71.0096,
+  "utc_offset": -5
+ },
+ {
+  "iata": "IAD",
+  "city": "Washington",
+  "country": "United States",
+  "lat": 38.9531,
+  "lon": -77.4565,
+  "utc_offset": -5
+ },
+ {
+  "iata": "ORD",
+  "city": "Chicago",
+  "country": "United States",
+  "lat": 41.9742,
+  "lon": -87.9073,
+  "utc_offset": -6
+ },
+ {
+  "iata": "ATL",
+  "city": "Atlanta",
+  "country": "United States",
+  "lat": 33.6407,
+  "lon": -84.4277,
+  "utc_offset": -5
+ },
+ {
+  "iata": "MIA",
+  "city": "Miami",
+  "country": "United States",
+  "lat": 25.7959,
+  "lon": -80.287,
+  "utc_offset": -5
+ },
+ {
+  "iata": "DFW",
+  "city": "Dallas",
+  "country": "United States",
+  "lat": 32.8998,
+  "lon": -97.0403,
+  "utc_offset": -6
+ },
+ {
+  "iata": "IAH",
+  "city": "Houston",
+  "country": "United States",
+  "lat": 29.9902,
+  "lon": -95.3368,
+  "utc_offset": -6
+ },
+ {
+  "iata": "DEN",
+  "city": "Denver",
+  "country": "United States",
+  "lat": 39.8561,
+  "lon": -104.6737,
+  "utc_offset": -7
+ },
+ {
+  "iata": "LAX",
+  "city": "Los Angeles",
+  "country": "United States",
+  "lat": 33.9416,
+  "lon": -118.4085,
+  "utc_offset": -8
+ },
+ {
+  "iata": "SFO",
+  "city": "San Francisco",
+  "country": "United States",
+  "lat": 37.6213,
+  "lon": -122.379,
+  "utc_offset": -8
+ },
+ {
+  "iata": "SEA",
+  "city": "Seattle",
+  "country": "United States",
+  "lat": 47.4502,
+  "lon": -122.3088,
+  "utc_offset": -8
+ },
+ {
+  "iata": "YYZ",
+  "city": "Toronto",
+  "country": "Canada",
+  "lat": 43.6777,
+  "lon": -79.6248,
+  "utc_offset": -5
+ },
+ {
+  "iata": "YVR",
+  "city": "Vancouver",
+  "country": "Canada",
+  "lat": 49.1967,
+  "lon": -123.1815,
+  "utc_offset": -8
+ },
+ {
+  "iata": "YUL",
+  "city": "Montreal",
+  "country": "Canada",
+  "lat": 45.4706,
+  "lon": -73.7408,
+  "utc_offset": -5
+ },
+ {
+  "iata": "MEX",
+  "city": "Mexico City",
+  "country": "Mexico",
+  "lat": 19.4361,
+  "lon": -99.0719,
+  "utc_offset": -6
+ },
+ {
+  "iata": "GRU",
+  "city": "Sao Paulo",
+  "country": "Brazil",
+  "lat": -23.4356,
+  "lon": -46.4731,
+  "utc_offset": -3
+ },
+ {
+  "iata": "GIG",
+  "city": "Rio de Janeiro",
+  "country": "Brazil",
+  "lat": -22.81,
+  "lon": -43.2506,
+  "utc_offset": -3
+ },
+ {
+  "iata": "EZE",
+  "city": "Buenos Aires",
+  "country": "Argentina",
+  "lat": -34.8222,
+  "lon": -58.5358,
+  "utc_offset": -3
+ },
+ {
+  "iata": "SCL",
+  "city": "Santiago",
+  "country": "Chile",
+  "lat": -33.393,
+  "lon": -70.7858,
+  "utc_offset": -4
+ },
+ {
+  "iata": "BOG",
+  "city": "Bogota",
+  "country": "Colombia",
+  "lat": 4.7016,
+  "lon": -74.1469,
+  "utc_offset": -5
+ },
+ {
+  "iata": "LIM",
+  "city": "Lima",
+  "country": "Peru",
+  "lat": -12.0219,
+  "lon": -77.1143,
+  "utc_offset": -5
+ }
+]

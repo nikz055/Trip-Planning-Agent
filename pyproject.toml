@@ -1,0 +1,26 @@
+[project]
+name = "trip-agent"
+version = "0.1.0"
+description = "Trip-planning agent (v1): a bounded workflow with one LLM inside it"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.6",
+    "asyncpg>=0.29",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+testpaths = ["trip_agent/tests"]
+asyncio_mode = "auto"
+# one event loop for the whole run, so the database pool can be shared between tests
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["trip_agent*"]
