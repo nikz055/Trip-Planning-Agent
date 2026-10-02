@@ -1,144 +1,198 @@
-﻿# Trip-Planning Agent
+# Trip-Planning Agent
 
-A bounded workflow with one LLM inside it. A traveller describes a 3â€“7 day
-city trip in plain language and gets one day-by-day plan with flights, a
-hotel, activities and travel time between stops, with confirmed costs kept
-apart from estimates. Plans can be revised in plain words without starting
-over. Planning only: no booking, no payments, no accounts.
+**A trip plan you can actually follow.** Describe a city trip in one sentence
+and get a day-by-day itinerary with flights, a hotel, activities and realistic
+travel time between stops, with every cost marked as confirmed or estimated.
 
-**What is and is not verified**
+## The problem
 
-- The guardrails, revisions, API and web UI are tested (398 tests) on an
-  in-memory store and on Postgres (the local Supabase stack).
-- All supplier data is **sample data**. Place names are real; hours, prices,
-  hotels and flights are illustrative.
-- Tests and the committed evaluation report use a **rule-based stand-in
-  planner, not a language model**. A real model has driven the pipeline
-  through its tool calls but has not yet completed a full plan, so there is no
-  real-model evaluation.
-- A hosted Supabase project has not been migrated or tested.
+AI trip planners are easy to demo and hard to trust. They invent hotels,
+schedule museums on the day they are closed, forget the time it takes to cross
+a city, and call a plan "within budget" when it is not. First-time
+international travellers are the people least able to spot those mistakes.
 
-## Architecture
+This project treats the language model as one component inside a controlled
+workflow rather than as the whole product. The model proposes; deterministic
+code checks every proposal before the traveller sees it.
+
+## What it does
+
+- **Plain-language requests.** "5 days in Vienna from London, 7–11 Nov, 2
+  adults, budget 2500 EUR, we like art and music" is enough to start.
+- **One short form, at most.** If details are missing, a single form asks for
+  all of them together, with ideas for the destination shown alongside.
+- **A complete day-wise plan.** Flights both ways, a hotel for every night,
+  activities that fit the pace you asked for, and transfers between stops.
+- **Costs you can trust.** Each price shows its source and when it was
+  fetched. Confirmed costs and estimates are labelled and totalled separately.
+- **Honest budgets.** The whole trip is counted: flights, lodging, local
+  transport, activities and meals. If the plan is over budget, it says by how
+  much.
+- **Revise without starting over.** Lock what you want to keep, then ask for a
+  change such as "less walking on day 2". Only the affected days are replanned.
+- **Version history.** Every revision is saved as a new version; earlier ones
+  are never overwritten.
+- **Shareable plans.** Each plan has a read-only link with links to providers.
+
+## What makes it reliable
+
+**Nothing is made up.** Every flight, hotel and attraction in a plan must
+trace back to a stored search result. Anything that does not is rejected.
+
+**Nine checks on every plan**, run by deterministic code before the plan is shown:
+
+1. Structure and dates match the trip
+2. Every item is grounded in a search result
+3. Activities fall within opening hours and avoid closures
+4. Travel time and a 30-minute buffer fit between stops
+5. The day respects the chosen pace, and the arrival day stays light
+6. A hotel covers every night, with check-in after the flight lands
+7. Costs match the search results and the budget adds up
+8. Prices are fresh; stale ones are re-fetched before the plan is shown
+9. Locked items and untouched days are unchanged after a revision
+
+**One chance to repair.** If a check fails, the planner is told exactly what is
+wrong and gets one attempt to fix it. If problems remain, the plan is shown as
+partial with the problems listed, never as a clean plan.
+
+**Bounded, predictable runs.** Planning is limited by iterations, tokens,
+estimated cost and wall-clock time. Near a limit, the planner is asked to wrap
+up with the best plan it has, so the traveller gets a result instead of a
+timeout.
+
+**Graceful supplier failures.** Failed searches are retried with backoff. If a
+supplier stays down, the plan is still produced and states plainly what is
+missing.
+
+**Resistant to prompt injection.** Search results are treated as data, never as
+instructions. Text inside a result that tries to steer the planner has no
+effect, and anything it might add fails the grounding check.
+
+**Built to survive restarts.**
+
+- Every state change is saved with the data that caused it, in one transaction.
+- A trip left mid-run by a crash is picked up where it stopped, without
+  repeating finished searches.
+- A double-clicked button never starts a second planning run: every action is
+  idempotent.
+- A run lease with an expiry guarantees one active planning run per trip,
+  enforced in the database.
+
+**Safe by design.** The model never sees credentials and never calls an API
+directly. The browser never talks to the database. Row Level Security is on
+for every table, so the public key can read nothing.
+
+## How it works
+
+```
+ request ──► intake ──► PLANNING ◄──► tools (flights, hotels, places, travel times)
+                           │
+                     propose plan
+                           ▼
+                      VALIDATING ──► violations ──► REPAIRING (once)
+                           │
+                           ▼
+                       PRESENTED ──► lock / revise ──► PLANNING (affected days only)
+                           │
+                        accept
+```
 
 | Component | Role |
 |---|---|
-| **Planner LLM** (`trip_agent/llm/`) | Interprets the request, decides the next action, writes the plan. Sees only tool definitions and tool results; never holds credentials, never calls an API. |
-| **Orchestrator** (`trip_agent/orchestrator/`) | A plain Python state machine. Owns the session, validates every planner action against the state and the tool schemas, runs tools, enforces the business rules and limits, decides when the loop ends. |
-| **Verifier** (`trip_agent/orchestrator/verifier.py`) | Deterministic code. Nine checks on every proposed plan: structure and dates, grounding, opening hours, travel time and buffers, pace, hotel coverage, costs and budget, freshness, locks and revision scope. One repair attempt per proposal. |
-| **Tools** (`trip_agent/tools/`) | Four data tools behind a `ToolProvider` interface. Mock implementations today; real suppliers implement the same interface. |
-| **Storage** (`trip_agent/db/`) | Postgres through `asyncpg`. A run lease with expiry, fenced saves, idempotent user actions and immutable plan versions. |
-| **API and UI** (`trip_agent/api/`, `trip_agent/ui/`) | FastAPI routes and a no-build web UI. The browser talks only to the API. |
+| **Planner LLM** (`trip_agent/llm/`) | Interprets the request, decides the next action, writes the plan. |
+| **Orchestrator** (`trip_agent/orchestrator/`) | A plain Python state machine. Validates every planner action, runs tools, enforces the rules and limits. |
+| **Verifier** (`trip_agent/orchestrator/verifier.py`) | The nine deterministic checks. |
+| **Tools** (`trip_agent/tools/`) | Flight, hotel, place and travel-time searches behind one interface, ready for real suppliers. |
+| **Storage** (`trip_agent/db/`) | Supabase Postgres: trips, plan versions, tool calls and results, and an action ledger. |
+| **API and UI** (`trip_agent/api/`, `trip_agent/ui/`) | FastAPI routes and a no-build web interface. |
 
-Hard rules live in code. The planner prompt (`trip_agent/llm/prompts.py`)
-guides the model; the orchestrator and verifier enforce. The workflow, its
-states and its limits are documented in
-[docs/state-machine.md](docs/state-machine.md), and a test fails if the code
-and that document disagree.
+The full state machine is documented in
+[docs/state-machine.md](docs/state-machine.md), and a test keeps the code and
+that document in step.
 
-### The planner is swappable
+**Any model, one interface.** The planner sits behind a small `LLMClient`
+interface. It works with any OpenAI-compatible endpoint that supports tool
+calling (OpenRouter by default), and ships with a rule-based stand-in so the
+whole pipeline runs offline with no API key.
 
-`LLMClient` (`trip_agent/llm/base.py`) has three implementations:
+## Tech stack
 
-- **`OpenAICompatClient`** â€” any OpenAI-compatible chat-completions endpoint
-  with tool calling, such as OpenRouter. The model must be able to emit a
-  whole plan as one tool call.
-- **`StandInPlanner`** â€” a rule-based stand-in, *not a language model*. It
-  goes through the same orchestrator, tools and checks, so the pipeline can be
-  run and tested without an API key. Wherever it is used, output is labelled
-  `STAND-IN`.
-- **`ScriptedLLM`** â€” a test double that plays back prepared tool calls,
-  including deliberately wrong ones.
+Python 3.11+ · FastAPI · Pydantic · asyncpg · Supabase (PostgreSQL) · pytest ·
+vanilla JavaScript
 
-`TRIP_AGENT_LLM_PROVIDER=auto` (the default) uses the configured endpoint if
-`LLM_API_KEY` and `LLM_MODEL` are set and the stand-in otherwise.
-`--llm openrouter` or `--llm standin` forces one.
-
-## Setup
+## Quick start
 
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install -e ".[dev]"     # Windows; use .venv/bin/python elsewhere
-cp .env.example .env                                # then fill in; .env is git-ignored
 ```
 
-Nothing in `.env` is needed to try the CLI with the stand-in planner.
-
-## Command line
+Plan a trip from the command line, no keys or database needed:
 
 ```bash
-.venv/Scripts/python -m trip_agent "5 days in Vienna from London, 7-11 Nov 2026, 2 adults, budget 2500 EUR, we like art and music" --llm standin
+.venv/Scripts/python -m trip_agent "5 days in Vienna from London, 7-11 Nov 2026, 2 adults, budget 2500 EUR" --llm standin
 ```
 
-- `--set FIELD=VALUE` answers a form field (`--set origin=London`).
-- `--fail TOOL=MODE` injects a failure into a mock tool
-  (`--fail search_flights=timeout`; modes: `timeout`, `empty`, `error`, `slow`).
-- `--llm standin|openrouter|auto` picks the planner.
+Run the web app, then open http://127.0.0.1:8000:
 
-With a database configured, `new`, `answer`, `show`, `revise`, `lock`,
-`accept` and `cancel` work on stored trips; each command is a separate
-process, so a trip carries on across restarts.
+```bash
+.venv/Scripts/python -m trip_agent.api --llm standin
+```
 
-## Database (Supabase Postgres)
+### Use a real model
 
-Local stack (needs Docker Desktop):
+Copy `.env.example` to `.env` and set `LLM_API_KEY` and `LLM_MODEL`
+(`LLM_BASE_URL` defaults to OpenRouter). Drop `--llm standin` to use it.
+
+### Use a database
+
+With Docker Desktop running:
 
 ```bash
 npx supabase start -x studio,realtime,storage-api,imgproxy,edge-runtime,logflare,vector,postgres-meta,mailpit,supavisor
-.venv/Scripts/python scripts/use_local_supabase.py       # writes .env.test (git-ignored)
-```
-
-Tests load `.env.test` before `.env`, so with that file present they use the
-local stack. For the commands below, set `TRIP_AGENT_ENV_FILE=.env.test` to do
-the same; without it they use `DATABASE_URL` from `.env`.
-
-```bash
-.venv/Scripts/python -m trip_agent.db.migrate            # apply supabase/migrations, report tables and RLS
-.venv/Scripts/python -m trip_agent.db.migrate --status   # report only
-.venv/Scripts/python scripts/restart_demo.py             # a trip surviving three separate processes
-```
-
-`supabase/migrations/` is the source of truth. The backend connects with
-`DATABASE_URL`; the browser never talks to the database. Row Level Security is
-on for every table with no policies, so the public key reads nothing.
-
-## Web app
-
-```bash
+.venv/Scripts/python scripts/use_local_supabase.py           # writes .env.test
 .venv/Scripts/python -m trip_agent.api --env-file .env.test --llm standin
 ```
 
-Then open http://127.0.0.1:8000. Leave out `--env-file .env.test` to use
-`DATABASE_URL` from `.env`; with no database configured the app keeps trips in
-memory. Leave out `--llm standin` to use the model configured in `.env`. A
-plan's share link is `/share/<trip id>` and is read-only.
-
-## Tests
-
-```bash
-.venv/Scripts/python -m pytest
-```
-
-Every orchestrator test runs on the in-memory store and on Postgres. Tests
-that need the database are skipped, and say so, when `DATABASE_URL` is not
-set. Every trip a test creates is deleted when the test ends.
-
-## Evaluation
-
-```bash
-.venv/Scripts/python -m trip_agent.eval.harness --llm standin      # all 40 scripted requests
-.venv/Scripts/python -m trip_agent.eval.harness --llm openrouter   # the model configured in .env
-```
-
-Scenarios are in `trip_agent/eval/requests.json`; reports are written to
-`trip_agent/eval/reports/`. The committed `report-standin.md` was produced with
-the stand-in planner, so it measures the guardrails, not a model's planning.
-A user test with real travellers has not been run.
+For a hosted Supabase project, put its connection string in `.env` as
+`DATABASE_URL` and apply the schema with
+`python -m trip_agent.db.migrate`. The SQL in `supabase/migrations/` is the
+source of truth.
 
 ## Sample data
 
-`trip_agent/data/mock/` holds four destinations (Vienna, Lisbon, Jaipur, Goa)
-with 15 hotels and 30 places each, hand-tuned flight routes, and a table of
-about 120 airports from which flights for any other pair are generated. The
-JSON is generated: edit `build_mock_data.py` and run
-`python -m trip_agent.data.mock.build_mock_data`. A test fails if the JSON and
-the builder drift apart. Prices are in EUR throughout.
+The demo ships with four destinations (Vienna, Lisbon, Jaipur and Goa), each
+with 15 hotels and 30 places, and about 120 departure airports worldwide. The
+catalogue deliberately includes awkward cases, such as an overnight flight, a
+museum closed on Mondays, a hotel with late check-in, a date with no flights
+and a place description that tries to give the planner instructions, so the
+safeguards have something real to catch.
+
+## Testing and evaluation
+
+```bash
+.venv/Scripts/python -m pytest                                  # 398 tests
+.venv/Scripts/python -m trip_agent.eval.harness --llm standin   # 40 scripted requests
+.venv/Scripts/python scripts/restart_demo.py                    # one trip across three processes
+```
+
+- **398 automated tests**, including one for each of 21 specified edge cases.
+  Orchestrator tests run on both an in-memory store and Postgres.
+- **An evaluation harness** that runs 40 scripted requests end to end and
+  reports task success, violations before and after repair, ungrounded items,
+  tool calls, latency, tokens, cost and clarification rounds. On the stand-in
+  planner all 40 end in the expected state; the report is in
+  `trip_agent/eval/reports/`.
+
+## Current status and roadmap
+
+This is version 1, a planning-only demo.
+
+- Supplier data is illustrative sample data; the tools are built to be swapped
+  for real flight, hotel and places APIs.
+- Tests and the published evaluation use the rule-based stand-in planner, so
+  they measure the safeguards. A full evaluation on a production model is the
+  next step.
+- Planned for version 2: user accounts with per-user data isolation, live
+  supplier integrations and currency conversion.
+- Out of scope by design: booking and payments.
