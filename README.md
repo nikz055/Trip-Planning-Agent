@@ -183,16 +183,3 @@ safeguards have something real to catch.
   tool calls, latency, tokens, cost and clarification rounds. On the stand-in
   planner all 40 end in the expected state; the report is in
   `trip_agent/eval/reports/`.
-
-## Current status and roadmap
-
-This is version 1, a planning-only demo.
-
-- Supplier data is illustrative sample data; the tools are built to be swapped
-  for real flight, hotel and places APIs.
-- Tests and the published evaluation use the rule-based stand-in planner, so
-  they measure the safeguards. A full evaluation on a production model is the
-  next step.
-- Planned for version 2: user accounts with per-user data isolation, live
-  supplier integrations and currency conversion.
-- Out of scope by design: booking and payments.
